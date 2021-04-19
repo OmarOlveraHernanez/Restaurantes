@@ -1,0 +1,140 @@
+<!-- Agregar Restaurante -->
+<div class="d-flex justify-content-end">
+    <button class="btn btn-success" (click)="modalAddRestaurante(content)">Agregar Restaurante</button>
+</div>
+
+<!-- Titulo Seccion -->
+<div class="d-flex justify-content-center">
+    <h1>Agregar Restaurante</h1>
+</div>
+
+
+<!-- Paginacion Restaurantes -->
+<div class="table-responsive">
+    <table class="mt-3 table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Restaurante</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let restaurante of datosRestaurante">
+                <td scope="row">{{restaurante.nombreRestaurante}}</td>
+                <td>{{restaurante.descripcionRestaurante}}</td>
+                <td>
+                    <div class="d-flex justify-content-start">
+                        <div class="me-3">
+                            <button class="btn btn-warning" (click)="modalEditRestaurante(contentEdit)">Editar</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal Agregar Restaurante -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Agregar nuevo restaurante</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <!-- Email -->
+            <div class="form-group mb-2">
+              <label for="mail"><strong>Nombre restaurante:</strong></label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="peli@peli.com">
+            </div>
+            <!-- Reseña -->
+            <div class="form-group mb-2">
+                <label for="resena"><strong>Descripción:</strong></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            </div>
+            <!-- Archivo Adjunto -->
+            <div class="form-group mb-2">
+                <label for="file"><strong>Logo restaurante:</strong></label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <!-- Tipo de Comidas -->
+            <div class="form-group">
+                <label for="tipoComida"><strong>Tipo de comida:</strong></label>
+                <select class="form-control" id="tipoComida">
+                    <option>Ranchera</option>
+                    <option>Mexicana</option>
+                    <option>Hamburguesas</option>
+                </select>
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-success">+</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+    </div>
+</ng-template>
+
+<!-- Modal Editar Restaurante -->
+<ng-template #contentEdit let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Editar Restaurante</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <!-- Email -->
+            <div class="form-group mb-2">
+              <label for="mail"><strong>Nombre restaurante:</strong></label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="peli@peli.com">
+            </div>
+            <!-- Reseña -->
+            <div class="form-group mb-2">
+                <label for="resena"><strong>Descripción:</strong></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            </div>
+            <!-- Archivo Adjunto -->
+            <div class="form-group mb-2">
+                <label for="file"><strong>Logo restaurante:</strong></label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <!-- Tipo de Comidas -->
+            <div class="form-group">
+                <label for="tipoComida"><strong>Tipo de comida:</strong></label>
+                <select class="form-control" id="tipoComida">
+                    <option>Ranchera</option>
+                    <option>Mexicana</option>
+                    <option>Hamburguesas</option>
+                </select>
+                <div class="row mt-2">
+                    <div class="col-md-11">
+                        <input class="form-control" type="text" placeholder="Alemana" readonly>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-success">-</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-success">+</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Guardar cambios</button>
+    </div>
+</ng-template>
+
+

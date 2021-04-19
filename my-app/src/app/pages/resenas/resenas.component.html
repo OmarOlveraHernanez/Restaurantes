@@ -1,0 +1,66 @@
+<!-- Agregar Reseña -->
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="modalResenas(content)">Agregar Reseña</button>
+    </div>
+</div>
+
+<!-- Titulo Seccion -->
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1>Reseñas</h1>
+    </div>
+</div>
+
+<!-- Cards Reseñas -->
+<div *ngFor="let resenas of resenasRestaurantes" class="card mt-3 mb-3">
+    <div class="card-body">
+      <p><strong>Email:</strong> {{resenas.email}}</p>
+      <p><strong>Reseña:</strong> {{resenas.resena}}</p>
+      <p><strong>Rating:</strong> {{resenas.rating}}</p>
+      <div class="d-flex justify-content-end">
+          <p><strong>Fecha reseña:</strong> {{resenas.fechaCreacion}}</p>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Agregar Reseña -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Agregar nueva reseña</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <!-- Email -->
+            <div class="form-group mb-2">
+              <label for="mail"><strong>Email:</strong></label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="peli@peli.com">
+            </div>
+            <!-- Reseña -->
+            <div class="form-group mb-2">
+                <label for="resena"><strong>Reseña:</strong></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+              </div>
+            <!-- Rating --> 
+            <div class="form-group">
+                <label for="rating"><strong>Rating:</strong></label>
+                <select multiple class="form-control" id="rating">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Enviar Reseña</button>
+    </div>
+</ng-template>
+

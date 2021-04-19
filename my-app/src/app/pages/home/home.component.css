@@ -1,0 +1,11 @@
+.cardImg {
+    height: 280px;
+    object-fit: contain;
+}
+.card-body span {
+    background: rgb(21, 206, 238);
+    border-radius: 50px;
+    color: #ffffff;
+    margin-left: 5px;
+    padding: 5px;
+}

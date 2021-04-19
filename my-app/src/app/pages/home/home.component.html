@@ -1,0 +1,28 @@
+<!-- Titulo Seccion -->
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1>Restaurantes</h1>
+    </div>
+</div>
+
+<!-- Cards Restaurantes -->
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div *ngFor="let cards of cardsRestaurantes" class="col">
+            <div class="card shadow-sm">
+                <img class="cardImg" src="{{cards.imgRestaurante}}" alt="">
+                <div class="card-body">
+                    <p class="card-text"><strong>Nombre:</strong> {{cards.nombreRestaurante}}</p>
+                    <p class="card-text"><strong>Descripción:</strong> {{cards.descripcionRestaurante}}</p>
+                    <p class="card-text"><strong>Categorias:</strong><span> {{cards.categorias}}</span></p> 
+                    <p class="card-text"><strong>Rating:</strong> {{cards.rating}}</p>
+                    <div *ngFor="let navigation of menuNavigation" class="d-flex justify-content-end align-items-center">
+                        <a href="{{navigation.linkUrl}}" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">{{navigation.linkName}}</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

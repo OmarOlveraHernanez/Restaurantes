@@ -13,7 +13,7 @@ Examen con base de datos de restaurante
 ## angular
 - cd paht_user/Restautantes/my-app
 - ng serve
-# ruta de aplicaion de angular
+# ruta de aplicacion de angular
 # rutas de retaurante
 - http://localhost:3000/getRestaurantes
 - http://localhost:3000/deleteRestaurant 
